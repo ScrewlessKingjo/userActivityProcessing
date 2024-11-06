@@ -1,12 +1,13 @@
 import jobs.DataHandler
 import org.apache.spark.sql.SparkSession
 import org.slf4j.LoggerFactory
+import utils.SparkInitializer
 
 object AppMain {
   private val logger = LoggerFactory.getLogger(getClass)
 
   def main(args: Array[String]): Unit = {
-    val spark = initializeSparkSession()
+    val spark = SparkInitializer.initializeSparkSession()
 
     try {
       logger.info("Start DataHandler")
@@ -19,19 +20,5 @@ object AppMain {
     } finally {
       spark.stop()
     }
-  }
-
-  private def initializeSparkSession(): SparkSession = {
-    SparkSession.builder()
-      .appName("Spark Application")
-      .master("local[*]")
-      .config("spark.testing.memory", "34359738368")
-      .config("spark.driver.memory", "32g")
-      .config("spark.executor.memory", "4g")
-      .config("parquet.block.size", 134217728) // 128MB
-      .config("spark.sql.shuffle.partitions", "400")
-      .config("spark.sql.files.maxRecordsPerFile", "100000")
-      .enableHiveSupport()
-      .getOrCreate()
   }
 }

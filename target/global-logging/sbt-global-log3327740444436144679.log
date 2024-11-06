@@ -1,0 +1,5 @@
+[debug] > Exec(run 'last assembly', None, None)
+[debug] Evaluating tasks: Compile / run
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[success] Total time: 3 s, completed 2024. 11. 5. 오후 9:34:58
+[debug] > Exec(idea-shell, None, None)

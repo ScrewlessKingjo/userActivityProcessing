@@ -1,0 +1,6 @@
+[debug] > Exec(clean, None, None)
+[debug] Evaluating tasks: clean
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Forcing garbage collection...
+[success] Total time: 70 s (01:10), completed 2024. 11. 5. 오후 10:22:52
+[debug] > Exec(idea-shell, None, None)

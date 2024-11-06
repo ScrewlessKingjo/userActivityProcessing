@@ -1,0 +1,15 @@
+[debug] > Exec(assembly, None, None)
+[debug] Evaluating tasks: assembly
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 4 Scala sources to C:\Users\sang0\IdeaProjects\DataHandler\target\scala-2.12\classes ...
+[info] downloading https://repo1.maven.org/maven2/org/scala-sbt/compiler-bridge_2.12/1.10.4/compiler-bridge_2.12-1.10.4-sources.jar
+[info] downloaded https://repo1.maven.org/maven2/org/scala-sbt/compiler-bridge_2.12/1.10.4/compiler-bridge_2.12-1.10.4-sources.jar
+[info] Non-compiled module 'compiler-bridge_2.12' for Scala 2.12.18. Compiling...
+[info]   Compilation completed in 7.566s.
+[warn] one deprecation; re-run with -deprecation for details
+[warn] one warning found
+[info] done compiling
+[info] Strategy 'discard' was applied to 626 files (Run the task at debug level to see details)
+[info] Strategy 'first' was applied to 1147 files (Run the task at debug level to see details)
+[success] Total time: 245 s (04:05), completed 2024. 11. 5. 오후 11:17:48
+[debug] > Exec(idea-shell, None, None)

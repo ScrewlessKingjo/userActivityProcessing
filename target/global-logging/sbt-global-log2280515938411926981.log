@@ -1,0 +1,9 @@
+[debug] > Exec(assembly, None, None)
+[debug] Evaluating tasks: assembly
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Scala source to C:\Users\sang0\IdeaProjects\DataHandler\target\scala-2.12\classes ...
+[info] done compiling
+[info] Strategy 'discard' was applied to 626 files (Run the task at debug level to see details)
+[info] Strategy 'first' was applied to 1147 files (Run the task at debug level to see details)
+[success] Total time: 165 s (02:45), completed 2024. 11. 5. 오후 11:30:10
+[debug] > Exec(idea-shell, None, None)

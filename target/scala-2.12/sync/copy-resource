@@ -1,0 +1,1 @@
+[[{"${BASE}/src/main/resources/application.conf":["${BASE}/target/scala-2.12/classes/application.conf"]},{"${BASE}/target/scala-2.12/classes/application.conf":["${BASE}/src/main/resources/application.conf"]}],{"${BASE}/src/main/resources/application.conf":{"file":"file:///C:/Users/sang0/IdeaProjects/DataHandler/src/main/resources/application.conf","lastModified":1730813729757}}]

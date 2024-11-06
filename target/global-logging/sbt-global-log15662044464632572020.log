@@ -1,0 +1,15 @@
+[debug] > Exec(java -version, None, None)
+[error] Expected ID character
+[error] Not a valid command: java (similar: eval, alias)
+[error] Expected 'java++'
+[error] Expected 'java+'
+[error] Expected project ID
+[error] Expected configuration
+[error] Expected ':'
+[error] Expected key
+[error] Not a valid key: java (similar: javaHome, javaHomes, javaSource)
+[error] java -version
+[error]     ^
+[debug] > Exec(idea-shell, None, None)
+[debug] > Exec(, None, None)
+[debug] > Exec(idea-shell, None, None)

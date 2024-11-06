@@ -2,18 +2,9 @@
 
 ## 개요
 
-지정 경로의 csv raw data를 다음과 같이 처리
+csv 형태의 로그 파일을 받아 처리 후 parquet 파일로 저장, 관련 데이터를 hive에 제공하는 Spark 어플리케이션입니다.
 
-1.타임스탬프 변환: event_time 컬럼을 기준으로 타임스탬프를 UTC에서 KST로 변환.
-
-2.날짜 및 파티션 생성: timestamp_kst 컬럼을 기반으로 date와 date_partition 컬럼을 생성하여 데이터를 일별 파티셔닝.
-
-3.데이터 최적화: 불필요한 데이터 삭제.
-
-4.Parquet 포맷 저장: 최적화된 데이터를 Parquet 형식으로 압축하여 저장.
-
-5.Hive 테이블 업데이트: 외부 Hive 테이블을 생성하고 파티션을 최신 상태로 업데이트.
-
+&nbsp;
 
 ## 주요 기능
 1. Apache Spark를 활용한 CSV 데이터 처리
@@ -32,6 +23,8 @@
 
 8. 작업 완료 체크포인트 생성
 
+&nbsp;
+
 
 
 ## 필수 요구사항
@@ -40,6 +33,8 @@
 - SBT (Scala Build Tool)
 - Apache Hive
 - Slack Webhook URL (알림 기능용)
+  
+&nbsp;
 
 
 
@@ -56,15 +51,18 @@
        ├─config
        │      ConfigLoader.scala
        │
-       └─jobs
-               DataHandler.scala
+       ├─jobs
+       │      DataHandler.scala
+       │
+       └─utils
                SlackNotifier.scala
-
+               SparkInitializer.scala
 ```
 
+&nbsp;
 
 
-### 출력 스키마
+## 출력 스키마
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS database.table (
   event_time STRING,         # 이벤트 발생 시간
@@ -80,6 +78,8 @@ CREATE EXTERNAL TABLE IF NOT EXISTS database.table (
 PARTITIONED BY (date_partition STRING)
 ```
 
+&nbsp;
+
 ## 오류 처리
 - 최대 재시도 횟수: 3회
 - 재시도 간격: 5초
@@ -87,17 +87,8 @@ PARTITIONED BY (date_partition STRING)
 - 작업 완료 시 체크포인트 파일 생성
 
 
-## 애플리케이션 실행 방법
-다음 명령어로 애플리케이션을 실행
-
-```bash
-spark-submit \
-  --class AppMain \
-  --master local[*] \
-  --driver-memory 32g \
-  --executor-memory 4g \
-  application.jar
-```
+&nbsp;
+&nbsp;
 
 # 설정
 ## application.conf
@@ -125,6 +116,8 @@ app {
 }
 ```
 
+&nbsp;
+
 ## build.sbt
 ```scala
 // build.sbt
@@ -146,5 +139,17 @@ lazy val root = (project in file("."))
       case x => MergeStrategy.first
     }
   )
+```
+&nbsp;
 
+## 애플리케이션 실행 방법
+다음 명령어로 애플리케이션을 실행
+
+```bash
+spark-submit \
+  --class AppMain \
+  --master local[*] \
+  --driver-memory 32g \
+  --executor-memory 4g \
+  application.jar
 ```

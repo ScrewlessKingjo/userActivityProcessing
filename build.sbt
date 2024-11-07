@@ -13,7 +13,7 @@ lazy val root = (project in file("."))
       "org.scala-lang" % "scala-library" % "2.12.18"
 ),
     assembly / assemblyMergeStrategy := {
-      case PathList("META-INF", xs @ _*) => MergeStrategy.discard // META-INF 폴더는 무시
-      case x => MergeStrategy.first // 나머지 파일은 첫 번째 것을 선택
+      case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+      case x => MergeStrategy.first
     }
   )

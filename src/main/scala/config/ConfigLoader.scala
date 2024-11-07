@@ -17,19 +17,7 @@ object ConfigLoader {
     val location: String = config.getString("app.hive.location")
   }
 
-  object PartitionConfig {
-    val dateFormat: String = config.getString("app.partition.date_format")
-  }
-
-  object ScheduleConfig {
-    val intervalMinutes: Int = config.getInt("app.schedule.interval_minutes")
-  }
-
-  object LogConfig {
-    val logPath: String = config.getString("app.logs.path")
-  }
-
   object SlackConfig {
-    val webhookUrl: String = config.getString("slack.webhookUrl")
+    val webhookUrl: String = config.getString("app.slack.webhookUrl")
   }
 }

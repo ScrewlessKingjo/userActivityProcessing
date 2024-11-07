@@ -75,7 +75,6 @@ object DataHandler {
 
         val optimizedDF = processedDF.select("timestamp_kst", "event_type", "product_id", "category_id", "category_code", "brand", "price", "user_id", "user_session", "date_partition")
 
-        // optimizedDF.show(10)
         optimizedDF.write
           .mode(SaveMode.Overwrite)
           .partitionBy("date_partition")
@@ -106,7 +105,7 @@ object DataHandler {
            """
         spark.sql(create_query)
 
-        val repair_query = s"MSCK REPAIR TABLE ${ConfigLoader.HiveConfig.database}.${ConfigLoader.HiveConfig.table}"
+        val repair_query = s"MSCK REPAIR TABLE ${hiveDB}.${hiveTable}"
         spark.sql(repair_query)
       }
 

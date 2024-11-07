@@ -1,15 +1,15 @@
 package utils
-
 import org.apache.spark.sql.SparkSession
+import config.ConfigLoader
 
 // Spark 초기화 모듈
 object SparkInitializer {
-  private val mode = "local[*]"
-  private val driverMemory = "32g"
-  private val executorMemory = "4g"
-  private val shufflePartitions = "400"
-  private val parquetSize = 134217728
-  private val maxRecordsPerFile = "100000"
+  private val mode = ConfigLoader.SparkConfig.mode
+  private val driverMemory = ConfigLoader.SparkConfig.driverMemory
+  private val executorMemory = ConfigLoader.SparkConfig.executorMemory
+  private val shufflePartitions = ConfigLoader.SparkConfig.shufflePartitions
+  private val parquetSize = ConfigLoader.SparkConfig.parquetSize
+  private val maxRecordsPerFile = ConfigLoader.SparkConfig.maxRecordsPerFile
 
   def initializeSparkSession(): SparkSession = {
     SparkSession.builder()

@@ -21,4 +21,13 @@ object ConfigLoader {
   object SlackConfig {
     val webhookUrl: String = config.getString("app.slack.webhookUrl")
   }
+
+  object SparkConfig {
+    val mode: String = config.getString("app.spark.mode")
+    val driverMemory: String = config.getString("app.spark.driverMemory")
+    val executorMemory: String = config.getString("app.spark.executorMemory")
+    val shufflePartitions: Int = config.getInt("app.spark.shufflePartitions")
+    val parquetSize: Int = config.getInt("app.spark.parquetSize")
+    val maxRecordsPerFile: String = config.getString("app.spark.maxRecordsPerFile")
+  }
 }

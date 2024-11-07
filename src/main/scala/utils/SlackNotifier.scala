@@ -7,6 +7,7 @@ import org.slf4j.{Logger, LoggerFactory}
 
 import java.net.{HttpURLConnection, URL}
 
+// 오류 발생 시 Slack 메신저를 통한 오류내역 전송 모듈
 object SlackNotifier {
   private val logger: Logger = LoggerFactory.getLogger(getClass)
   private val webhookUrl = ConfigLoader.SlackConfig.webhookUrl

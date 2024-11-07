@@ -10,6 +10,7 @@ import java.nio.file.{Files, Paths, StandardOpenOption}
 import scala.jdk.CollectionConverters._
 import scala.util.{Failure, Success, Try}
 
+// 데이터 처리 모듈
 object DataHandler {
   private val logger = LoggerFactory.getLogger(getClass)
   private val maxRetries = 3
@@ -51,7 +52,7 @@ object DataHandler {
         logger.info("Job already completed. Skipping this run.")
         return
       }
-
+      // Read & Write
       executeWithRetries {
         val csvFiles = Files.list(Paths.get(inputPath))
           .iterator()
@@ -82,7 +83,7 @@ object DataHandler {
           .parquet(outputPath)
       }
 
-
+      // Hive Insert
       executeWithRetries {
         val create_db_query = s"CREATE DATABASE IF NOT EXISTS ${hiveDB}"
         spark.sql(create_db_query)

@@ -2,6 +2,7 @@ package config
 
 import com.typesafe.config.{Config, ConfigFactory}
 
+// config 객체화 모듈
 object ConfigLoader {
   private val config: Config = ConfigFactory.load()
 
